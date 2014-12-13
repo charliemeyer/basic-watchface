@@ -6,8 +6,11 @@ static Window *s_main_window;
 static TextLayer *s_time_layer;
 static TextLayer *s_date_layer;
 static TextLayer *s_week_layer;
-
-//testing that cloud pebble can get code from git and stuff      
+static BitmapLayer *s_timeborder_layer_left;
+static GBitmap *s_timeborder_bitmap_left;
+static BitmapLayer *s_timeborder_layer_right;
+static GBitmap *s_timeborder_bitmap_right;
+    
 int main() {
         init();
         app_event_loop();
@@ -20,13 +23,21 @@ static void time_handler(struct tm *tick_time, TimeUnits units_changed){
 
 static void main_window_load(Window *window) {      
         window_set_fullscreen(window, true);	
-        
+
         s_week_layer = text_layer_create(GRect(0, 0, 144, 56));
         text_layer_set_background_color(s_week_layer, GColorBlack);
         text_layer_set_text_color(s_week_layer, GColorWhite);
         text_layer_set_font(s_week_layer, fonts_get_system_font(FONT_KEY_BITHAM_30_BLACK));
         text_layer_set_text_alignment(s_week_layer, GTextAlignmentCenter);
         
+        s_background_bitmap_right = gbitmap_create_with_resource(RIGHT_BORDER);
+        s_background_layer_right = bitmap_layer_create(GRect(88, 56, 56, 56));
+        bitmap_layer_set_bitmap(s_background_layer_right, s_background_bitmap_right);
+
+        s_background_bitmap_left = gbitmap_create_with_resource(LEFT_BORDER);
+        s_background_layer_left = bitmap_layer_create(GRect(0, 56, 56, 56));
+        bitmap_layer_set_bitmap(s_background_layer_left, s_background_bitmap_left);
+
         s_time_layer = text_layer_create(GRect(0, 56, 144, 56));
         text_layer_set_background_color(s_time_layer, GColorWhite);
         text_layer_set_text_color(s_time_layer, GColorBlack);
@@ -40,6 +51,8 @@ static void main_window_load(Window *window) {
         text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter);        
 
         // Add them as child layers to the Window's root layer
+        layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_background_layer_left));
+        layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_background_layer_right));
         layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_time_layer));
         layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_date_layer));
         layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_week_layer));
