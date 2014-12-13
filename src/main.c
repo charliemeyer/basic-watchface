@@ -7,7 +7,7 @@ static TextLayer *s_time_layer;
 static TextLayer *s_date_layer;
 static TextLayer *s_week_layer;
 
-//testing that cloud pebble can get code from git      
+//testing that cloud pebble can get code from git and stuff      
 int main() {
         init();
         app_event_loop();
