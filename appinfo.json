@@ -4,12 +4,23 @@
         ""
     ],
     "companyName": "cmey63@gmail.com",
-    "longName": "charlie's first face",
+    "longName": "charlie's first watchface",
     "projectType": "native",
     "resources": {
-        "media": []
+        "media": [
+            {
+                "file": "images/right.png",
+                "name": "RIGHT_BORDER",
+                "type": "png"
+            },
+            {
+                "file": "images/left.png",
+                "name": "LEFT_BORDER",
+                "type": "png"
+            }
+        ]
     },
-    "shortName": "first-face",
+    "shortName": "basic-watchface",
     "uuid": "55130d97-a594-4946-a357-98afc6e35fc5",
     "versionCode": 1,
     "versionLabel": "1.0",
