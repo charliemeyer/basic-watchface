@@ -6,10 +6,8 @@ static Window *s_main_window;
 static TextLayer *s_time_layer;
 static TextLayer *s_date_layer;
 static TextLayer *s_week_layer;
-static BitmapLayer *s_timeborder_layer_left;
-static GBitmap *s_timeborder_bitmap_left;
-static BitmapLayer *s_timeborder_layer_right;
-static GBitmap *s_timeborder_bitmap_right;
+static BitmapLayer *s_timeborder_layer;
+static GBitmap *s_timeborder_bitmap;
     
 int main() {
         init();
@@ -24,20 +22,16 @@ static void time_handler(struct tm *tick_time, TimeUnits units_changed){
 static void main_window_load(Window *window) {      
         window_set_fullscreen(window, true);	
 
+        s_timeborder_bitmap_right = gbitmap_create_with_resource(RESOURCE_ID_TIMEBORDER);
+        s_timeborder_layer_right = bitmap_layer_create(GRect(0, 0, 144, 168));
+        bitmap_layer_set_bitmap(s_timeborder_layer_right, s_timeborder_bitmap_right);
+
         s_week_layer = text_layer_create(GRect(0, 0, 144, 56));
         text_layer_set_background_color(s_week_layer, GColorBlack);
         text_layer_set_text_color(s_week_layer, GColorWhite);
         text_layer_set_font(s_week_layer, fonts_get_system_font(FONT_KEY_BITHAM_30_BLACK));
         text_layer_set_text_alignment(s_week_layer, GTextAlignmentCenter);
         
-        s_timeborder_bitmap_right = gbitmap_create_with_resource(RESOURCE_ID_RIGHT_BORDER);
-        s_timeborder_layer_right = bitmap_layer_create(GRect(88, 56, 56, 56));
-        bitmap_layer_set_bitmap(s_timeborder_layer_right, s_timeborder_bitmap_right);
-
-        s_timeborder_bitmap_left = gbitmap_create_with_resource(RESOURCE_ID_LEFT_BORDER);
-        s_timeborder_layer_left = bitmap_layer_create(GRect(0, 56, 56, 56));
-        bitmap_layer_set_bitmap(s_timeborder_layer_left, s_timeborder_bitmap_left);
-
         s_time_layer = text_layer_create(GRect(0, 56, 144, 56));
         text_layer_set_background_color(s_time_layer, GColorWhite);
         text_layer_set_text_color(s_time_layer, GColorBlack);
