@@ -26,7 +26,7 @@ static void main_window_load(Window *window) {
         s_timeborder_layer = bitmap_layer_create(GRect(0, 0, 144, 168));
         bitmap_layer_set_bitmap(s_timeborder_layer, s_timeborder_bitmap);
 
-        s_week_layer = text_layer_create(GRect(0, 0, 144, 56));
+        s_week_layer = text_layer_create(GRect(0, 8, 144, 48));
         text_layer_set_background_color(s_week_layer, GColorBlack);
         text_layer_set_text_color(s_week_layer, GColorWhite);
         text_layer_set_font(s_week_layer, fonts_get_system_font(FONT_KEY_BITHAM_30_BLACK));
@@ -38,7 +38,7 @@ static void main_window_load(Window *window) {
         text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD));
         text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
         
-        s_date_layer = text_layer_create(GRect(0, 112, 144, 56));
+        s_date_layer = text_layer_create(GRect(0, 120, 144, 48));
         text_layer_set_background_color(s_date_layer, GColorBlack);
         text_layer_set_text_color(s_date_layer, GColorWhite);
         text_layer_set_font(s_date_layer, fonts_get_system_font(FONT_KEY_BITHAM_30_BLACK));
