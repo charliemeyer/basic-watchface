@@ -30,11 +30,11 @@ static void main_window_load(Window *window) {
         text_layer_set_font(s_week_layer, fonts_get_system_font(FONT_KEY_BITHAM_30_BLACK));
         text_layer_set_text_alignment(s_week_layer, GTextAlignmentCenter);
         
-        s_timeborder_bitmap_right = gbitmap_create_with_resource(RIGHT_BORDER);
+        s_timeborder_bitmap_right = gbitmap_create_with_resource(RESOURCE_ID_RIGHT_BORDER);
         s_timeborder_layer_right = bitmap_layer_create(GRect(88, 56, 56, 56));
         bitmap_layer_set_bitmap(s_timeborder_layer_right, s_timeborder_bitmap_right);
 
-        s_timeborder_bitmap_left = gbitmap_create_with_resource(LEFT_BORDER);
+        s_timeborder_bitmap_left = gbitmap_create_with_resource(RESOURCE_ID_LEFT_BORDER);
         s_timeborder_layer_left = bitmap_layer_create(GRect(0, 56, 56, 56));
         bitmap_layer_set_bitmap(s_timeborder_layer_left, s_timeborder_bitmap_left);
 
