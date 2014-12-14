@@ -9,13 +9,8 @@
     "resources": {
         "media": [
             {
-                "file": "images/right.png",
-                "name": "RIGHT_BORDER",
-                "type": "png"
-            },
-            {
-                "file": "images/left.png",
-                "name": "LEFT_BORDER",
+                "file": "images/background.png",
+                "name": "TIMEBORDER",
                 "type": "png"
             }
         ]

@@ -22,9 +22,9 @@ static void time_handler(struct tm *tick_time, TimeUnits units_changed){
 static void main_window_load(Window *window) {      
         window_set_fullscreen(window, true);	
 
-        s_timeborder_bitmap_right = gbitmap_create_with_resource(RESOURCE_ID_TIMEBORDER);
-        s_timeborder_layer_right = bitmap_layer_create(GRect(0, 0, 144, 168));
-        bitmap_layer_set_bitmap(s_timeborder_layer_right, s_timeborder_bitmap_right);
+        s_timeborder_bitmap = gbitmap_create_with_resource(RESOURCE_ID_TIMEBORDER);
+        s_timeborder_layer = bitmap_layer_create(GRect(0, 0, 144, 168));
+        bitmap_layer_set_bitmap(s_timeborder_layer, s_timeborder_bitmap);
 
         s_week_layer = text_layer_create(GRect(0, 0, 144, 56));
         text_layer_set_background_color(s_week_layer, GColorBlack);
@@ -45,8 +45,7 @@ static void main_window_load(Window *window) {
         text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter);        
 
         // Add them as child layers to the Window's root layer
-        layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_timeborder_layer_left));
-        layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_timeborder_layer_right));
+        layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_timeborder_layer));
         layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_time_layer));
         layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_date_layer));
         layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_week_layer));
