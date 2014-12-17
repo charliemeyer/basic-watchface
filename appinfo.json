@@ -18,8 +18,8 @@
     "shortName": "basic-watchface",
     "uuid": "55130d97-a594-4946-a357-98afc6e35fc5",
     "versionCode": 1,
-    "versionLabel": "1.0",
+    "versionLabel": "1.1",
     "watchapp": {
-        "watchface": false
+        "watchface": true
     }
 }

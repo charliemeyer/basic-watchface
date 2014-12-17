@@ -90,13 +90,14 @@ static void update_time() {
         }
         
         strftime(date_buffer, sizeof("may 01"), "%b %e", current_time);
-        strftime(week_buffer, sizeof("wednesday"), "%A", current_time);
+        strftime(week_buffer, sizeof("wednesday"), "%a", current_time);
         
         if(time_buffer[0] == '0'){
                 for(int i = 1; i < 6; i++){ //get rid of that leading 0
                         time_buffer[i - 1] = time_buffer[i];      
                 }
         } 
+
         week_buffer[0] += ('a' - 'A');
         date_buffer[0] += ('a' - 'A');
 
